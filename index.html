@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thornridge Server</title>
   <style>
-    /* --- Basic reset --- */
     * {margin:0; padding:0; box-sizing:border-box;}
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -16,13 +15,9 @@
       scroll-behavior: smooth;
     }
 
-    /* --- Scrollbar styling --- */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #141414;
-    }
+    /* Scrollbar */
+    ::-webkit-scrollbar {width: 10px;}
+    ::-webkit-scrollbar-track {background: #141414;}
     ::-webkit-scrollbar-thumb {
       background: linear-gradient(180deg, #00c896, #009e76);
       border-radius: 5px;
@@ -32,7 +27,6 @@
       background: linear-gradient(180deg, #00f5b3, #00b085);
     }
 
-    /* --- Layout --- */
     header {
       background: url('https://static.planetminecraft.com/files/resource_media/screenshot/1806/minecraft-forest-lake_9350721_lrg.jpg') center/cover no-repeat;
       height: 80vh;
@@ -67,18 +61,10 @@
       font-size: 2rem;
     }
 
-    ul {
-      list-style: none;
-      margin-left: 0;
-      padding-left: 0;
-    }
+    ul {list-style: none; margin-left: 0; padding-left: 0;}
+    ul li::before {content: "• "; color: #00c896;}
 
-    ul li::before {
-      content: "• ";
-      color: #00c896;
-    }
-
-    /* --- Mods grid --- */
+    /* Mods grid */
     .mods-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -98,6 +84,18 @@
       background: #242424;
     }
 
+    .mods-grid a {
+      color: #00c896;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .mods-grid a:hover {
+      color: #00f5b3;
+      text-shadow: 0 0 5px #00f5b3;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -106,14 +104,8 @@
       font-size: 0.9rem;
     }
 
-    a {
-      color: #00c896;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a {color: #00c896; text-decoration: none;}
+    a:hover {text-decoration: underline;}
 
     .join-btn {
       display: inline-block;
@@ -171,56 +163,48 @@
 
   <section id="mods">
     <h2>Required Mods</h2>
-    <p>
-      To join Thornridge, you’ll need to install the following mods (Forge 1.20.1 recommended):
-    </p>
+    <p>To join Thornridge, you’ll need to install the following mods (Forge 1.20.1 recommended):</p>
     <ul class="mods-grid">
-      <li>Security Craft</li>
-      <li>Architectury API</li>
-      <li>Cloth Config</li>
-      <li>Coroutil (Forge)</li>
-      <li>Create</li>
-      <li>Create Railways Navigator</li>
-      <li>Crops Need Sky</li>
-      <li>Farmer’s Delight</li>
-      <li>Framework (MrCrayfish)</li>
-      <li>MCEF</li>
-      <li>MrCrayfish’s Furniture Refurbished</li>
-      <li>SkinsRestorer (Forge, Lionarius)</li>
-      <li>Thirst Was Taken</li>
-      <li>WATUT</li>
-      <li>WebDisplays</li>
-      <li>Macaw’s Bridges</li>
-      <li>Macaw’s Doors</li>
-      <li>Macaw’s Windows</li>
-      <li>Macaw’s Fences and Walls</li>
-      <li>Macaw’s Trapdoors</li>
-      <li>Macaw’s Roofs</li>
-      <li>Macaw’s Furniture</li>
-      <li>Macaw’s Lights and Lamps</li>
-      <li>Macaw’s Path and Pavings</li>
-      <li>Macaw’s Paintings</li>
-      <li>Macaw’s Stairs</li>
-      <li>City Modernities (Port/Renewed)</li>
-      <li>Nickname Easy</li>
-      <li>Simple Voice Chat</li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/security-craft/download/7148563">Security Craft</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/architectury-api/download/5137938">Architectury API</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/cloth-config/download/5729105">Cloth Config</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/coroutil/download/5096038">Coroutil (Forge)</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/create/download/7178761">Create</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/create-railways-navigator/download/6693814">Create Railways Navigator</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/crops-need-sky/download/6662150">Crops Need Sky</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/farmers-delight/download/6917255">Farmer’s Delight</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/framework/download/6531429">Framework (MrCrayfish)</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/mcef/download/5828187">MCEF</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/refurbished-furniture/download/7110922">MrCrayfish’s Furniture Refurbished</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/skinrestorer/download/6897053">SkinsRestorer (Forge, Lionarius)</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/thirst-was-taken/download/6660408">Thirst Was Taken</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/what-are-they-up-to/download/6315241">WATUT</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/webdisplays/download/5823561">WebDisplays</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-bridges/download/6528781">Macaw’s Bridges</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-doors/download/6146379">Macaw’s Doors</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-windows/download/7025435">Macaw’s Windows</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-fences-and-walls/download/6363155">Macaw’s Fences and Walls</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-trapdoors/download/5977657">Macaw’s Trapdoors</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-roofs/download/6494466">Macaw’s Roofs</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-furniture/download/5589873">Macaw’s Furniture</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-lights-and-lamps/download/6502689">Macaw’s Lights and Lamps</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-paths-and-pavings/download/7029554">Macaw’s Path and Pavings</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-paintings/download/4848151">Macaw’s Paintings</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-stairs/download/6155181">Macaw’s Stairs</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/city-modernities-port/download/6347640">City Modernities (Port/Renewed)</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/nickname-easy/download/6336044">Nickname Easy</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat/download/7117009">Simple Voice Chat</a></li>
     </ul>
 
-    <p style="margin-top: 20px; color: #ff6961;">
-      ⚠️ Warning: Be careful not to duplicate mods!
-    </p>
-
-    <p style="margin-top: 10px;">
-      You can download all of these from <a href="https://www.curseforge.com/minecraft/mc-mods" target="_blank">CurseForge</a>.
+    <p style="margin-top: 20px; color: #ff6961;">⚠️ Warning: Be careful not to duplicate mods!</p>
+    <p style="margin-top: 10px;">You can download all of these from 
+      <a href="https://www.curseforge.com/minecraft/mc-mods" target="_blank">CurseForge, or click on the mods.</a>.
     </p>
   </section>
 
   <section id="join">
     <h2>Join Thornridge</h2>
-    <p>
-      Ready to begin your journey?  
-      Connect using the IP below and start your story.
-    </p>
+    <p>Ready to begin your journey? Connect using the IP below and start your story.</p>
     <ul>
       <li><strong>Server IP:</strong> thornridgeOfficial.aternos.me</li>
       <li><strong>Discord:</strong> <a href="https://discord.gg/EzE67C3H2r">Join our community</a></li>
