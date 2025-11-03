@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thornridge RP Server</title>
+  <title>Thornridge Server</title>
   <style>
     /* --- Basic reset --- */
     * {margin:0; padding:0; box-sizing:border-box;}
@@ -12,6 +13,23 @@
       background: #101010;
       color: #eaeaea;
       line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* --- Scrollbar styling --- */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #141414;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #00c896, #009e76);
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #00f5b3, #00b085);
     }
 
     /* --- Layout --- */
@@ -52,11 +70,32 @@
     ul {
       list-style: none;
       margin-left: 0;
+      padding-left: 0;
     }
 
     ul li::before {
       content: "• ";
       color: #00c896;
+    }
+
+    /* --- Mods grid --- */
+    .mods-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .mods-grid li {
+      background: #202020;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .mods-grid li:hover {
+      transform: scale(1.03);
+      background: #242424;
     }
 
     footer {
@@ -97,15 +136,15 @@
 
   <header>
     <h1>Thornridge</h1>
-    <p>A Modded Minecraft Roleplay World</p>
+    <p>A Modded Minecraft Roleplay Server</p>
     <a href="#join" class="join-btn">Join the Adventure</a>
   </header>
 
   <section id="about">
     <h2>About Thornridge</h2>
     <p>
-      Thornridge is a living, breathing modded world where survival meets storytelling. 
-      Explore vast lands, discover forgotten ruins, and craft your own destiny among 
+      Thornridge is a living modded world where survival meets storytelling. 
+      Explore our city, discover forgotten ruins, and craft your own destiny among 
       friends and rivals. Every player shapes the future of Thornridge.
     </p>
   </section>
@@ -113,9 +152,9 @@
   <section id="lore">
     <h2>Lore</h2>
     <p>
-      Long ago, the valley of Thornridge thrived under the guidance of the ancient builders. 
-      Now, as magic reawakens and factions rise, adventurers seek to claim the ruins and uncover 
-      what lies beneath the soil.
+      Long ago, Thornridge thrived under the guidance of the ancient builders. 
+      Now, as magic reawakens and rises, adventurers explore to claim the ruins and uncover 
+      what lies beneath the dirt.
     </p>
   </section>
 
@@ -130,21 +169,66 @@
     </ul>
   </section>
 
+  <section id="mods">
+    <h2>Required Mods</h2>
+    <p>
+      To join Thornridge, you’ll need to install the following mods (Forge 1.20.1 recommended):
+    </p>
+    <ul class="mods-grid">
+      <li>Security Craft</li>
+      <li>Architectury API</li>
+      <li>Cloth Config</li>
+      <li>Coroutil (Forge)</li>
+      <li>Create</li>
+      <li>Create Railways Navigator</li>
+      <li>Crops Need Sky</li>
+      <li>Farmer’s Delight</li>
+      <li>Framework (MrCrayfish)</li>
+      <li>MCEF</li>
+      <li>MrCrayfish’s Furniture Refurbished</li>
+      <li>SkinsRestorer (Forge, Lionarius)</li>
+      <li>Thirst Was Taken</li>
+      <li>WATUT</li>
+      <li>WebDisplays</li>
+      <li>Macaw’s Bridges</li>
+      <li>Macaw’s Doors</li>
+      <li>Macaw’s Windows</li>
+      <li>Macaw’s Fences and Walls</li>
+      <li>Macaw’s Trapdoors</li>
+      <li>Macaw’s Roofs</li>
+      <li>Macaw’s Furniture</li>
+      <li>Macaw’s Lights and Lamps</li>
+      <li>Macaw’s Path and Pavings</li>
+      <li>Macaw’s Paintings</li>
+      <li>Macaw’s Stairs</li>
+      <li>City Modernities (Port/Renewed)</li>
+      <li>Nickname Easy</li>
+      <li>Simple Voice Chat</li>
+    </ul>
+
+    <p style="margin-top: 20px; color: #ff6961;">
+      ⚠️ Warning: Be careful not to duplicate mods!
+    </p>
+
+    <p style="margin-top: 10px;">
+      You can download all of these from <a href="https://www.curseforge.com/minecraft/mc-mods" target="_blank">CurseForge</a>.
+    </p>
+  </section>
+
   <section id="join">
     <h2>Join Thornridge</h2>
     <p>
       Ready to begin your journey?  
-      Download our modpack and connect to the world of Thornridge.
+      Connect using the IP below and start your story.
     </p>
     <ul>
-      <li><strong>Server IP:</strong> play.thornridge.net</li>
-      <li><strong>Modpack:</strong> <a href="#">Click here to download</a></li>
-      <li><strong>Discord:</strong> <a href="#">Join our community</a></li>
+      <li><strong>Server IP:</strong> thornridgeOfficial.aternos.me</li>
+      <li><strong>Discord:</strong> <a href="https://discord.gg/EzE67C3H2r">Join our community</a></li>
     </ul>
   </section>
 
   <footer>
-    &copy; 2025 Thornridge RP Server | Made with ♥ by the Thornridge Team
+    &copy; 2025 Thornridge RP Server | Made with ♥ by Konstantin Kunev
   </footer>
 
 </body>
