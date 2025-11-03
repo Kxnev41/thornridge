@@ -301,11 +301,11 @@
     });
     topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Starfield animation with full-screen mouse attraction
+    // Full-screen starfield with mouse attraction
     const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
     let stars = [];
-    const starCount = 500; // more stars for full-screen
+    const starCount = 500; // number of stars
     const mouse = { x: null, y: null };
 
     window.addEventListener('mousemove', (e) => {
@@ -321,7 +321,8 @@
         stars.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          z: Math.random() * canvas.width
+          size: Math.random() * 2 + 0.5,
+          speed: Math.random() * 0.5 + 0.1
         });
       }
     }
@@ -334,28 +335,22 @@
       for (let i = 0; i < starCount; i++) {
         const star = stars[i];
 
-        // Move stars forward
-        star.z -= 0.5;
-        if (star.z <= 0) star.z = canvas.width;
+        star.y += star.speed;
+        if (star.y > canvas.height) star.y = 0;
 
-        const k = 128.0 / star.z;
-        let px = star.x * k + canvas.width / 2;
-        let py = star.y * k + canvas.height / 2;
+        let px = star.x;
+        let py = star.y;
 
-        // Mouse attraction effect
         if (mouse.x !== null && mouse.y !== null) {
           const dx = mouse.x - px;
           const dy = mouse.y - py;
           const distance = Math.sqrt(dx*dx + dy*dy);
-          const attraction = Math.min(5, 200 / (distance + 1)); // attraction strength
+          const attraction = Math.min(5, 200 / (distance + 1));
           px += dx * attraction * 0.01;
           py += dy * attraction * 0.01;
         }
 
-        if (px >= 0 && px <= canvas.width && py >= 0 && py <= canvas.height) {
-          const size = (1 - star.z / canvas.width) * 2;
-          ctx.fillRect(px, py, size, size);
-        }
+        ctx.fillRect(px, py, star.size, star.size);
       }
 
       requestAnimationFrame(draw);
