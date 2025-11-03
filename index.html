@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -263,7 +262,7 @@
       <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-roofs/download/6494466">Macaw’s Roofs</a></li>
       <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-furniture/download/5589873">Macaw’s Furniture</a></li>
       <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-lights-and-lamps/download/6502689">Macaw’s Lights and Lamps</a></li>
-      <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-paths-and-pavings/download/7029554">Macaw’s Path and Pavings</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-path-and-pavings/download/7029554">Macaw’s Path and Pavings</a></li>
       <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-paintings/download/4848151">Macaw’s Paintings</a></li>
       <li><a href="https://www.curseforge.com/minecraft/mc-mods/macaws-stairs/download/6155181">Macaw’s Stairs</a></li>
       <li><a href="https://www.curseforge.com/minecraft/mc-mods/city-modernities-port/download/6347640">City Modernities (Port/Renewed)</a></li>
@@ -302,11 +301,18 @@
     });
     topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Starfield animation
+    // Starfield animation with full-screen mouse attraction
     const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
     let stars = [];
-    const starCount = 250;
+    const starCount = 500; // more stars for full-screen
+    const mouse = { x: null, y: null };
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
     function resize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -319,24 +325,42 @@
         });
       }
     }
+
     function draw() {
       ctx.fillStyle = '#000010';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = '#4cc0ff';
+
       for (let i = 0; i < starCount; i++) {
         const star = stars[i];
+
+        // Move stars forward
         star.z -= 0.5;
         if (star.z <= 0) star.z = canvas.width;
+
         const k = 128.0 / star.z;
-        const px = star.x * k + canvas.width / 2;
-        const py = star.y * k + canvas.height / 2;
+        let px = star.x * k + canvas.width / 2;
+        let py = star.y * k + canvas.height / 2;
+
+        // Mouse attraction effect
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = mouse.x - px;
+          const dy = mouse.y - py;
+          const distance = Math.sqrt(dx*dx + dy*dy);
+          const attraction = Math.min(5, 200 / (distance + 1)); // attraction strength
+          px += dx * attraction * 0.01;
+          py += dy * attraction * 0.01;
+        }
+
         if (px >= 0 && px <= canvas.width && py >= 0 && py <= canvas.height) {
           const size = (1 - star.z / canvas.width) * 2;
           ctx.fillRect(px, py, size, size);
         }
       }
+
       requestAnimationFrame(draw);
     }
+
     window.addEventListener('resize', resize);
     resize();
     draw();
