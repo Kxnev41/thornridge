@@ -1,2 +1,151 @@
-<html>
-  <h1> thornridge site </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thornridge RP Server</title>
+  <style>
+    /* --- Basic reset --- */
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #101010;
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+
+    /* --- Layout --- */
+    header {
+      background: url('https://static.planetminecraft.com/files/resource_media/screenshot/1806/minecraft-forest-lake_9350721_lrg.jpg') center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      text-shadow: 0 0 15px #000;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      text-shadow: 0 0 10px #000;
+    }
+
+    section {
+      padding: 60px 15%;
+      background: #181818;
+      border-bottom: 1px solid #222;
+    }
+
+    section h2 {
+      color: #00c896;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    ul {
+      list-style: none;
+      margin-left: 0;
+    }
+
+    ul li::before {
+      content: "• ";
+      color: #00c896;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0b0b0b;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #00c896;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .join-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      background: #00c896;
+      color: #111;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .join-btn:hover {
+      background: #00a67d;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Thornridge</h1>
+    <p>A Modded Minecraft Roleplay World</p>
+    <a href="#join" class="join-btn">Join the Adventure</a>
+  </header>
+
+  <section id="about">
+    <h2>About Thornridge</h2>
+    <p>
+      Thornridge is a living, breathing modded world where survival meets storytelling. 
+      Explore vast lands, discover forgotten ruins, and craft your own destiny among 
+      friends and rivals. Every player shapes the future of Thornridge.
+    </p>
+  </section>
+
+  <section id="lore">
+    <h2>Lore</h2>
+    <p>
+      Long ago, the valley of Thornridge thrived under the guidance of the ancient builders. 
+      Now, as magic reawakens and factions rise, adventurers seek to claim the ruins and uncover 
+      what lies beneath the soil.
+    </p>
+  </section>
+
+  <section id="rules">
+    <h2>Rules</h2>
+    <ul>
+      <li>Respect all players and staff.</li>
+      <li>No griefing or stealing.</li>
+      <li>Stay in character during roleplay events.</li>
+      <li>No cheating, x-ray, or exploits.</li>
+      <li>Have fun and build the story together!</li>
+    </ul>
+  </section>
+
+  <section id="join">
+    <h2>Join Thornridge</h2>
+    <p>
+      Ready to begin your journey?  
+      Download our modpack and connect to the world of Thornridge.
+    </p>
+    <ul>
+      <li><strong>Server IP:</strong> play.thornridge.net</li>
+      <li><strong>Modpack:</strong> <a href="#">Click here to download</a></li>
+      <li><strong>Discord:</strong> <a href="#">Join our community</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; 2025 Thornridge RP Server | Made with ♥ by the Thornridge Team
+  </footer>
+
+</body>
+</html>
