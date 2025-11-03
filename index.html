@@ -239,7 +239,7 @@
     <h2>Required Mods</h2>
     <p>To join Thornridge, install the following mods (Forge 1.20.1 recommended):</p>
     <ul class="mods-grid">
-     <li><a href="https://www.curseforge.com/minecraft/mc-mods/security-craft/download/7148563">Security Craft</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/security-craft/download/7148563">Security Craft</a></li>
       <li><a href="https://www.curseforge.com/minecraft/mc-mods/architectury-api/download/5137938">Architectury API</a></li>
       <li><a href="https://www.curseforge.com/minecraft/mc-mods/cloth-config/download/5729105">Cloth Config</a></li>
       <li><a href="https://www.curseforge.com/minecraft/mc-mods/coroutil/download/5096038">Coroutil (Forge)</a></li>
@@ -301,11 +301,11 @@
     });
     topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Full-screen starfield with mouse attraction
+    // Full-screen 2D starfield with mouse attraction
     const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
     let stars = [];
-    const starCount = 500; // number of stars
+    const starCount = 500;
     const mouse = { x: null, y: null };
 
     window.addEventListener('mousemove', (e) => {
@@ -322,7 +322,7 @@
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           size: Math.random() * 2 + 0.5,
-          speed: Math.random() * 0.5 + 0.1
+          speed: Math.random() * 0.3 + 0.05
         });
       }
     }
@@ -335,19 +335,20 @@
       for (let i = 0; i < starCount; i++) {
         const star = stars[i];
 
+        // Move star downward slightly
         star.y += star.speed;
         if (star.y > canvas.height) star.y = 0;
 
+        // Mouse attraction effect
         let px = star.x;
         let py = star.y;
-
         if (mouse.x !== null && mouse.y !== null) {
           const dx = mouse.x - px;
           const dy = mouse.y - py;
           const distance = Math.sqrt(dx*dx + dy*dy);
-          const attraction = Math.min(5, 200 / (distance + 1));
-          px += dx * attraction * 0.01;
-          py += dy * attraction * 0.01;
+          const attraction = Math.min(5, 150 / (distance + 1));
+          px += dx * attraction * 0.02;
+          py += dy * attraction * 0.02;
         }
 
         ctx.fillRect(px, py, star.size, star.size);
